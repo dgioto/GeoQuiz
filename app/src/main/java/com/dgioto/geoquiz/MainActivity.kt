@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 
 private const val TAG = "MainActivity"
+private const val KEY_INDEX = "index"
 
 class MainActivity : AppCompatActivity() {
 
@@ -30,6 +31,11 @@ class MainActivity : AppCompatActivity() {
         //Включение команды регистрации сообщения в onCreate(Bundle?)
         Log.d(TAG, "onCreate(Bundle?) called")
         setContentView(R.layout.activity_main)
+
+        /* проверим currentIndex. Если оно существует, назначьте его currentIndex.
+        Если значение с ключом index в наборе не существует или если набор пустой, присвойте значение 0 */
+        val currentIndex = savedInstanceState?.getInt(KEY_INDEX, 0) ?: 0
+        quizViewModel.currentIndex = currentIndex
 
         trueButton = findViewById(R.id.true_button)
         falseButton = findViewById(R.id.false_button)
@@ -68,16 +74,22 @@ class MainActivity : AppCompatActivity() {
         Log.d(TAG, "onPause() called")
     }
 
+    //переопределите onSaveInstanceState(Bundle), чтобы записать значение currentIndex в пакет
+    // с помощью константы как ключ
+    override fun onSaveInstanceState(savedInstanceState: Bundle) {
+        super.onSaveInstanceState(savedInstanceState)
+        Log.i(TAG, "onSaveInstanceState")
+        savedInstanceState.putInt(KEY_INDEX, quizViewModel.currentIndex)
+    }
+
     override fun onStop() {
         super.onStop()
         Log.d(TAG, "onStop() called")
-
     }
 
     override fun onDestroy() {
         super.onDestroy()
         Log.d(TAG, "onDestroy() called")
-
     }
 
     //Вопрос под номером currentIndex из массива должен отображаться в виджете TextView
@@ -97,5 +109,6 @@ class MainActivity : AppCompatActivity() {
         }
         Toast.makeText(this, messageResId, Toast.LENGTH_SHORT).show()
     }
+
     //страница 119
 }
