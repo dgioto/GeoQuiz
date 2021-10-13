@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/GeoQuiz/app/src/main/res/drawable/ic_baseline_navigate_next_24.xml" value="0.15555555555555556" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/GeoQuiz/app/src/main/res/layout-land/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/GeoQuiz/app/src/main/res/layout/activity_main.xml" value="0.2101851851851852" />
       </map>
     </option>
