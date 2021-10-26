@@ -110,5 +110,5 @@ class MainActivity : AppCompatActivity() {
         Toast.makeText(this, messageResId, Toast.LENGTH_SHORT).show()
     }
 
-    //страница 119
+    //страница 153
 }
